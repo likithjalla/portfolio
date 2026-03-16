@@ -1,0 +1,171 @@
+/* style.css */
+.glass {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-card {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(14, 165, 233, 0.5);
+    box-shadow: 0 0 30px -5px rgba(14, 165, 233, 0.2);
+}
+
+/* Neon Glows */
+.neon-text {
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5), 0 0 20px rgba(14, 165, 233, 0.3);
+}
+
+.btn-neon {
+    border: 1px solid rgba(14, 165, 233, 0.5);
+    background-color: black;
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-neon:hover {
+    background-color: rgba(14, 165, 233, 0.1);
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.3), inset 0 0 10px rgba(14, 165, 233, 0.3);
+    border-color: rgba(14, 165, 233, 0.8);
+    text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-ghost {
+    color: white;
+    transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #0ea5e9;
+}
+
+.social-icon {
+    padding: 0.75rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    color: #d1d5db;
+    transition: all 0.3s ease;
+}
+.social-icon:hover {
+    color: #0ea5e9;
+    transform: translateY(-4px);
+    border-color: rgba(14, 165, 233, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: black;
+}
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #0ea5e9;
+}
+
+/* Custom Cursor */
+body {
+    cursor: none;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #0ea5e9;
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #0ea5e9;
+    transition: transform 0.1s ease-out;
+}
+.cursor-outline {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(14, 165, 233, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out, opacity 0.2s ease, width 0.2s ease, height 0.2s ease;
+}
+
+/* Overrides for specific html tags */
+a:hover ~ .cursor-outline, button:hover ~ .cursor-outline, .cursor-pointer:hover ~ .cursor-outline {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.8;
+}
+
+.scroll-line {
+    animation: scroll-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes scroll-ping {
+    0% { height: 0px; opacity: 0; }
+    50% { height: 64px; opacity: 1; }
+    100% { height: 0px; opacity: 0; }
+}
+
+/* 3D Flips */
+.perspective-1000 {
+    perspective: 1000px;
+}
+.cert-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+.cert-card:hover .cert-card-inner {
+    transform: rotateY(180deg);
+}
+.cert-card-front, .cert-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+.cert-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Chart Bars Animation */
+.chart-bar-fill {
+    transition: height 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Modal animation overrides */
+#project-modal.active {
+    display: flex;
+    opacity: 1;
+}
